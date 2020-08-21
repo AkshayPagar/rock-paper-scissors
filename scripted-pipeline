@@ -33,18 +33,18 @@ pipeline {
    }
    
    stage('Conclusion') {
-      def response = input message: 'Whatcha think?', parameters: [choice(choices: 'Yes\nNo', description: 'Proceed or Abort?', name: 'Wasn\'t that cool?')]
+     // def response = input message: 'Whatcha think?', parameters: [choice(choices: 'Yes\nNo', description: 'Proceed or Abort?', name: 'Wasn\'t that cool?')]
         
-      if (response=="Yes") {
-         echo "I agree!"
-      } else {
-         echo "You are hard to please."
-      }
+     // if (response=="Yes") {
+     //    echo "I agree!"
+     // } else {
+     //    echo "You are hard to please."
+     // }
    }
   }
   post{
         always{
-             echo ("Hello")
+             echo "Hello"
              deleteDir()
          }
    }
