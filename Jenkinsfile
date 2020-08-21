@@ -87,5 +87,11 @@ node {
 		}
 		
 	}
+        post {
+
+        	always {
+                deleteDir()
+		}
+        }
 
  }
