@@ -1,6 +1,7 @@
-node {
-   
+pipeline {
+   stages{
    //Declare a global variable for mvnHome
+
 
    stage('Version') { 
 
@@ -40,12 +41,12 @@ node {
          echo "You are hard to please."
       }
    }
-}
-
-post{
+  }
+  post{
         always{
-            deleteDir()
-
+             echo ("Hello")
+             deleteDir()
          }
-
    }
+
+}
