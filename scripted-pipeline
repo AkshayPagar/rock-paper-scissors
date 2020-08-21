@@ -61,7 +61,7 @@ pipeline {
    post{
         always{
              echo "Hello"
-	     sleep(5)
+	     sleep(4)
              deleteDir()
          }
     }
