@@ -40,11 +40,12 @@ node {
          echo "You are hard to please."
       }
    }
-   post{
-  	always{
+}
+
+post{
+        always{
             deleteDir()
 
-         }  
- 
+         }
+
    }
-}
