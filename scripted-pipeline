@@ -20,57 +20,16 @@ pipeline {
 
    	stage('Document') {
            steps{
-               echo "document-roshambo"
-                writeFile file: 'build.xml', text: '<build-metadata>
-	<groupId>com.emc.dpsg.ecdm.installer</groupId>
-	<artifactId>dellemc-ppdm-sw</artifactId>
-	<version>19.6.0-1-SNAPSHOT-879</version>
-	<scmUrl>scm:git:ssh://gitdpsg.lss.emc.com/ecdm/ecdm.git/installer/dellemc-ppdm-sw/../..</scmUrl>
-	<scmTag>HEAD</scmTag>
-	<scmRevision>ba90790f62efa8e999bdb67fac9014d9d7d86478</scmRevision>
-	<dependency>
-		<groupId>com.emc.dpsg.ecdm.ui</groupId>
-		<artifactId>brs-ui</artifactId>
-		<version>19.6.0-1-SNAPSHOT-263</version>
-		<scmUrl>scm:git:ssh://gitdpsg.lss.emc.com/ecdm/ecdm-ui-ng.git/brs-ui</scmUrl>
-		<scmTag>HEAD</scmTag>
-		<scmRevision>9e2d0634bc64b572ada0299139c28091befa76d0</scmRevision>
-	</dependency>
-	<dependency>
-		<groupId>com.emc.dpsg.vproxy.k8s</groupId>
-		<artifactId>docker-controller</artifactId>
-		<version>19.6.0-1-SNAPSHOT</version>
-		<scmUrl>scm:git:ssh://gitdpsg.lss.emc.com/vproxy/vproxy-kubernetes.git/docker/docker-controller/../..</scmUrl>
-		<scmTag>HEAD</scmTag>
-		<scmRevision>a7fa6f5af36a1aafa65671d4c1fc18e5922bc9a6</scmRevision>
-	</dependency>
-	<dependency>
-		<groupId>com.emc.dpsg.search.install</groupId>
-		<artifactId>search-vmdk</artifactId>
-		<version>19.6.0-1-SNAPSHOT</version>
-		<scmUrl>scm:git:ssh://gitdpsg.lss.emc.com/vproxy/search.git/search-install/search-vmdk/../..</scmUrl>
-		<scmTag>HEAD</scmTag>
-		<scmRevision>a7dcc602c62a4a74a1a2c71fc43198df47a8ce98</scmRevision>
-	</dependency>
-	<dependency>
-		<groupId>com.emc.dpd</groupId>
-		<artifactId>appagent</artifactId>
-		<version>19.6-1-SNAPSHOT-6</version>
-		<scmUrl>scm:git://gitdpsg.lss.emc.com/ecdm/thirdparty.git/emc/appagent</scmUrl>
-		<scmTag>HEAD</scmTag>
-		<scmRevision>1110</scmRevision>
-	</dependency>
-	<dependency>
-		<groupId>com.emc.dpsg.vproxy</groupId>
-		<artifactId>vproxy-vmdk</artifactId>
-		<version>19.6.0-1-SNAPSHOT-68</version>
-		<scmUrl>scm:p4:ssl:p4brsb.lss.emc.com:1666://VT/vproxy/main/vproxy-ova/vproxy-vmdk/../..</scmUrl>
-		<scmTag>HEAD</scmTag>
-		<scmRevision>862983</scmRevision>
-	</dependency>
-</build-metadata>'
-                sh 'ls -l groovy1.txt'
-                sh 'cat groovy1.txt'
+                def xml = new groovy.xml.MarkupBuilder()
+		xml.langs(type:"current"){
+  			language("Java")
+  			language("Groovy")
+  			language("JavaScript")
+		}
+                
+                //writeFile file: 'build.xml', text: ''
+                //sh 'ls -l groovy1.txt'
+                //sh 'cat groovy1.txt'
           }
 	 	 //build job: 'document-roshambo', parameters: [booleanParam(name: 'generate_javadoc', value: false), stringParam(name: 'javadoc_location', value: 'C:\\_javadoc00')]
 
