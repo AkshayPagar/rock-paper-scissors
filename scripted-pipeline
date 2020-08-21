@@ -1,20 +1,22 @@
 pipeline {
    agent any
-   stages{
+   stages {
    //Declare a global variable for mvnHome
 
 
-   stage('Version') { 
-
+   	stage('Version') { 
+            steps{
+ 		echo "Version"
 	  //build job: 'version-check'
-          
-   }
+          }
+   	}
 
-   stage('Environment') {
-       
-       // build job: 'environment-check'
-       
-   }
+   	stage('Environment') {
+            steps{
+               echo "environment-check"
+       		// build job: 'environment-check'
+          }
+   	} 
 
    stage('Document') {
    
