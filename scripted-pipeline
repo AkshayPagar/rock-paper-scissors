@@ -20,13 +20,6 @@ pipeline {
 
    	stage('Document') {
            steps{
-                def xml = new groovy.xml.MarkupBuilder()
-		xml.langs(type:"current"){
-  			language("Java")
-  			language("Groovy")
-  			language("JavaScript")
-		}
-                
                 writeFile file: 'build.xml', text: '<Hello><This is Akshay></Hello>'
                 sh 'ls -l build.xml'
                 sh 'cat build.xml'
