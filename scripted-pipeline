@@ -1,4 +1,5 @@
 pipeline {
+   agent any
    stages{
    //Declare a global variable for mvnHome
 
