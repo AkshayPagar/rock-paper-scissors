@@ -20,7 +20,7 @@ pipeline {
 
    	stage('Document') {
            steps{
-                writeFile file: 'build.xml', text: '<Hello><This is Akshay></Hello>'
+                writeFile file: 'build.xml', text: '<Hello><This is Akshay></Hello>\n<Wassup><nothing much></Wassup>'
                 sh 'ls -l build.xml'
                 sh 'cat build.xml'
           }
