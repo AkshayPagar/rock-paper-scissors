@@ -46,7 +46,7 @@ pipeline {
    	stage('Conclusion') {
 	     steps{
               echo "Coclusioon"
-
+	      echo env.WORKSPACE
              }
      	// def response = input message: 'Whatcha think?', parameters: [choice(choices: 'Yes\nNo', description: 'Proceed or Abort?', name: 'Wasn\'t that cool?')]
         
