@@ -7,6 +7,7 @@ pipeline {
    	stage('Version') { 
             steps{
  		echo "Version"
+		sleep(12)
 	  //build job: 'version-check'
           }
    	}
@@ -14,6 +15,7 @@ pipeline {
    	stage('Environment') {
             steps{
                echo "environment-check"
+	       sleep(10)
        		// build job: 'environment-check'
           }
    	} 
@@ -31,6 +33,7 @@ pipeline {
    	stage('Compile'){
              steps{
                echo "compile-roshambo"
+	       sleep(12)
           }
        	// build job: 'compile-roshambo'
    	}
@@ -38,6 +41,7 @@ pipeline {
    	stage('Acceptance') {
             steps{
                echo "Acceptance"
+	       sleep(112)
           }
          	//def response = input message: 'UAT Tests',   parameters: [choice(choices: 'Pass\nFail', description: 'Proceed or Abort?', name: 'Pass or Fail?')]
 
