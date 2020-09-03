@@ -6,7 +6,7 @@ pipeline {
 
    	stage('Version') { 
             steps{
- 		echo "Version"
+ 		echo "stage-Version"
 		sleep(12)
 	  //build job: 'version-check'
           }
@@ -14,7 +14,7 @@ pipeline {
 
    	stage('Environment') {
             steps{
-               echo "environment-check"
+               echo "stage-environment-check"
 	       sleep(10)
        		// build job: 'environment-check'
           }
@@ -22,6 +22,7 @@ pipeline {
 
    	stage('Document') {
            steps{
+	   	echo "stage-document"
                 writeFile file: 'build.xml', text: '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n<build-metadata>\n<groupId>com.emc.dpsg.ecdm.installer</groupId>\n<artifactId>dellemc-ppdm-sw</artifactId>\n<version>19.6.0-1-SNAPSHOT-879</version>\n<scmUrl>scm:git:ssh://gitdpsg.lss.emc.com/ecdm/ecdm.git/installer/dellemc-ppdm-sw/../..</scmUrl>\n<scmTag>HEAD</scmTag>\n<scmRevision>ba90790f62efa8e999bdb67fac9014d9d7d86478</scmRevision>\n<dependency>\n    <groupId>com.emc.dpsg.ecdm.ui</groupId>\n    <artifactId>brs-ui</artifactId>\n    <version>19.6.0-1-SNAPSHOT-263</version>\n    <scmUrl>scm:git:ssh://gitdpsg.lss.emc.com/ecdm/ecdm-ui-ng.git/brs-ui</scmUrl>\n    <scmTag>HEAD</scmTag>\n    <scmRevision>9e2d0634bc64b572ada0299139c28091befa76d0</scmRevision>\n</dependency>\n<dependency>\n    <groupId>com.emc.dpsg.vproxy.k8s</groupId>\n    <artifactId>docker-controller</artifactId>\n    <version>19.6.0-1-SNAPSHOT</version>\n    <scmUrl>scm:git:ssh://gitdpsg.lss.emc.com/vproxy/vproxy-kubernetes.git/docker/docker-controller/../..</scmUrl>\n    <scmTag>HEAD</scmTag>\n    <scmRevision>a7fa6f5af36a1aafa65671d4c1fc18e5922bc9a6</scmRevision>\n</dependency>\n<dependency>\n    <groupId>com.emc.dpsg.search.install</groupId>\n    <artifactId>search-vmdk</artifactId>\n    <version>19.6.0-1-SNAPSHOT</version>\n    <scmUrl>scm:git:ssh://gitdpsg.lss.emc.com/vproxy/search.git/search-install/search-vmdk/../..</scmUrl>\n    <scmTag>HEAD</scmTag>\n    <scmRevision>a7dcc602c62a4a74a1a2c71fc43198df47a8ce98</scmRevision>\n</dependency>\n<dependency>\n    <groupId>com.emc.dpd</groupId>\n    <artifactId>appagent</artifactId>\n    <version>19.6-1-SNAPSHOT-6</version>\n    <scmUrl>scm:git://gitdpsg.lss.emc.com/ecdm/thirdparty.git/emc/appagent</scmUrl>\n    <scmTag>HEAD</scmTag>\n    <scmRevision>1110</scmRevision>\n</dependency>\n<dependency>\n    <groupId>com.emc.dpsg.vproxy</groupId>\n    <artifactId>vproxy-vmdk</artifactId>\n    <version>19.6.0-1-SNAPSHOT-68</version>\n    <scmUrl>scm:p4:ssl:p4brsb.lss.emc.com:1666://VT/vproxy/main/vproxy-ova/vproxy-vmdk/../..</scmUrl>\n    <scmTag>HEAD</scmTag>\n    <scmRevision>862983</scmRevision>\n</dependency>\n</build-metadata>\n'
                 //sh 'ls -l build.xml'
                 //sh 'cat build.xml'
@@ -32,7 +33,7 @@ pipeline {
 
    	stage('Compile'){
              steps{
-               echo "compile-roshambo"
+               echo "stage-compile-roshambo"
 	       sleep(12)
           }
        	// build job: 'compile-roshambo'
@@ -40,7 +41,7 @@ pipeline {
    
    	stage('Acceptance') {
             steps{
-               echo "Acceptance"
+               echo "stage-Acceptance"
 	       sleep(112)
           }
          	//def response = input message: 'UAT Tests',   parameters: [choice(choices: 'Pass\nFail', description: 'Proceed or Abort?', name: 'Pass or Fail?')]
@@ -49,7 +50,7 @@ pipeline {
    
    	stage('Conclusion') {
 	     steps{
-              echo "Coclusioon"
+              echo "stage-Coclusioon"
 	      echo env.WORKSPACE
              }
      	// def response = input message: 'Whatcha think?', parameters: [choice(choices: 'Yes\nNo', description: 'Proceed or Abort?', name: 'Wasn\'t that cool?')]
@@ -64,7 +65,7 @@ pipeline {
    }
    post{
         always{
-             echo "Hello"
+             echo "stage-post actions"
 	     sleep(7)
              deleteDir()
          }
