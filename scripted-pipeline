@@ -36,7 +36,8 @@ pipeline {
    	stage('Compile'){
              steps{
                echo "stage-compile-roshambo"
-	       sleep(12)
+	        buildDocker(
+            	)
           }
        	// build job: 'compile-roshambo'
    	}
