@@ -36,8 +36,7 @@ pipeline {
    	stage('Compile'){
              steps{
                echo "stage-compile-roshambo"
-	        buildDocker(
-            	)
+	         sh 'docker build -t test:latest .'
           }
        	// build job: 'compile-roshambo'
    	}
